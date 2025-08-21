@@ -15,9 +15,9 @@ class Manager:
         return processor.df
 
 
-if __name__ == "__main__":
-    a = Manager()
-    df_result = a.manager()
+# if __name__ == "__main__":
+#     a = Manager()
+#     df_result = a.manager()
     # print(df_result.head())
     # print(df_result.columns)
 

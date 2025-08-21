@@ -3,7 +3,7 @@ from fetcher import MongoLoader
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 #
-# nltk.download('vader_lexicon')# Compute sentiment labels
+nltk.download('vader_lexicon')# Compute sentiment labels
 # tweet = 'Skillcate is a great Youtube Channel to learn Data Science'
 
 # score=SentimentIntensityAnalyzer().polarity_scores(tweet)
@@ -28,7 +28,7 @@ class Processing:
 
     def find_text_emotion(self):
         if "Text" not in self.df.columns:
-            raise ValueError("DataFrame must contain 'tweets' column")
+            raise ValueError("DataFrame must contain 'Text' column")
         emotion = []
         for tweet in self.df["Text"]:
             score = SentimentIntensityAnalyzer().polarity_scores(tweet)
@@ -41,6 +41,7 @@ class Processing:
                 emotion.append("Negative")
 
         self.df["Emotion text"] = emotion
+        self.df["_id"] = self.df["_id"].astype(str)
         return self.df
 
 # a=Processing()
