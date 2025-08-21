@@ -20,8 +20,7 @@ class MongoLoader:
         df=pd.DataFrame(list(mycol.find()))
         return df
 
-# a=MongoLoader()
-# print(a.get_all_data())
+
 
 
 
