@@ -41,7 +41,8 @@ class Processing:
                 emotion.append("Negative")
 
         self.df["Emotion text"] = emotion
+        return self.df
 
-a=Processing()
-a.find_text_emotion()
-print(a.df)
+# a=Processing()
+# a.find_text_emotion()
+# print(a.df)

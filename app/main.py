@@ -1,10 +1,9 @@
-import pymongo
-from pprint import pprint
+from fastapi import FastAPI
 
-connection_string = "mongodb+srv://IRGC:iraniraniran@iranmaldb.gurutam.mongodb.net/"
-client = pymongo.MongoClient(connection_string)
-db = client["IranMalDB"]
-collection = db["tweets"]
+app = FastAPI()
 
-for doc in collection.find().limit(5):
-    pprint(doc)
+@app.get("/GET")
+async def get_data():
+    return dl.get_all_data()
+
+
