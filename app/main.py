@@ -6,6 +6,11 @@ app = FastAPI()
 @app.get("/")
 async def get_data():
     manager=Manager()
+    df = manager.manager()
+    if "_id" in df.columns:
+        df = df.drop(columns=["_id"])
+    if "TweetID" in df.columns:
+        df["TweetID"] = df["TweetID"].astype(int).astype(str)
     return manager.manager().to_dict(orient="records")
 
 
